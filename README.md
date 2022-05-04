@@ -166,6 +166,12 @@ See the [open issues](https://github.com/newsletter-service/issues) for a full l
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Improvements
+
+- Their can few minutes delay when dealing with two deadline with very less time intervaL
+- Service not tested with some of the edge cases
+- Server overloading can occur in case of high number of content
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
