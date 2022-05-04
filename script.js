@@ -5,9 +5,6 @@ const Content = require("./models/Content");
 require("./connections/database");
 redisConnection();
 
-console.log(process.env.EMAIL);
-console.log(process.env.PASSWORD);
-
 async function scheduledMail() {
   const currTime = new Date();
 
