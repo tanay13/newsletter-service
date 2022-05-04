@@ -13,8 +13,16 @@ const { client, redisConnection } = require("./connections/redis");
 redisConnection();
 
 app.post("/api/getData", async (req, res) => {
-  const c = await Content.find().sort({ contentTime: 1 });
-  console.log(c[0]);
+  // const c = await Content.find().sort({ contentTime: 1 });
+  // console.log(c[0]);
+
+  const topics = await Topic.find({ topic: "nutrition" });
+
+  console.log(topics);
+
+  for (var i = 0; i < topics[0].subscribers.length; i++) {
+    console.log(topics[0].subscribers[i]);
+  }
 });
 
 app.post("/api/addSubs", async (req, res) => {
@@ -52,7 +60,6 @@ app.post("/api/addContent", async (req, res) => {
     const latestDateTime = new Date(latestTime);
     console.log(latestDateTime);
     if (latestTime === null || contentDateTime < latestDateTime) {
-      console.log("hey");
       await client.set("latestTime", contentDateTime.toISOString());
       await client.set("latestData", contentText);
       await client.set("latestId", contentDoc.id);
