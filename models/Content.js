@@ -1,4 +1,3 @@
-const { ObjectId } = require("bson");
 const mongoose = require("mongoose");
 
 const contentSchema = new mongoose.Schema({
