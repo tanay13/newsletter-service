@@ -12,10 +12,10 @@ const { client, redisConnection } = require("./connections/redis");
 
 redisConnection();
 
-// app.get("/api/getData", async (req, res) => {
-//   const c = await Content.find().sort({ contentTime: 1 });
-//   console.log(c);
-// });
+app.post("/api/getData", async (req, res) => {
+  const c = await Content.find().sort({ contentTime: 1 });
+  console.log(c[0]);
+});
 
 app.post("/api/addSubs", async (req, res) => {
   const { email, topic } = req.body;
@@ -54,7 +54,9 @@ app.post("/api/addContent", async (req, res) => {
     if (latestTime === null || contentDateTime < latestDateTime) {
       console.log("hey");
       await client.set("latestTime", contentDateTime.toISOString());
-      console.log("Saved");
+      await client.set("latestData", contentText);
+      await client.set("latestId", contentDoc.id);
+      await client.set("latestTopic", contentDoc.topic);
     }
   } catch (e) {
     console.log(e);
