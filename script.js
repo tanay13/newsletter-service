@@ -5,6 +5,9 @@ const Content = require("./models/Content");
 require("./connections/database");
 redisConnection();
 
+console.log(process.env.EMAIL);
+console.log(process.env.PASSWORD);
+
 async function scheduledMail() {
   const currTime = new Date();
 
@@ -32,13 +35,13 @@ async function scheduledMail() {
         let transporter = nodemailer.createTransport({
           service: "hotmail",
           auth: {
-            user: "traj13122001@outlook.com",
-            pass: "lavairis504q@",
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD,
           },
         });
 
         let message = {
-          from: "traj13122001@outlook.com",
+          from: process.env.EMAIL,
           to: topics[0].subscribers[i],
           subject: "Subject",
           text: latestText,

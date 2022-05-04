@@ -48,11 +48,11 @@
 
 ## About The Project
 
- <img src="images/newsletter.png" alt="Logo" width="1000" height="500">
+ <img src="images/newsletter.png" alt="Logo" width="1000" height="450">
 
 While adding the newsletter content we are checking for <b>latestTime</b> key in the redis. If the new content time is lesser than the already stored <b>latestTime</b> key in redis then update all the keys in the redis, which are
 
-1. latestTime \
+1. latestTime
 2. latestText
 3. latestTopic
 4. latestId - ID of the content document
@@ -70,7 +70,7 @@ Tools that were used in the process of making this microservice are:
 
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
-- [nodemailer](<[https://](https://reactjs.org/)>)
+- [nodemailer](https://reactjs.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -104,13 +104,15 @@ This is an example of how to list things you need to use the software and how to
    cd newsletter-service
    ```
 
-3. Enter the following command
+3. refer the .env-example file and enter all the environment variables there
+
+4. Enter the following command
 
    ```sh
    node app.js
    ```
 
-4. Start the scheduler script
+5. Start the scheduler script
 
    ```sh
    node script.js
