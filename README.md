@@ -50,7 +50,7 @@
 
  <img src="images/newsletter.png" alt="Logo" width="1000" height="450">
 
-While adding the newsletter content we are checking for <b>latestTime</b> key in the redis. If the new content time is lesser than the already stored <b>latestTime</b> key in redis then update all the keys in the redis, which are
+While adding the newsletter content we are checking for <b>latestTime</b> key in the redis. If the new content time is less than the already stored <b>latestTime</b> key in redis then update all the keys in the redis, which are
 
 1. latestTime
 2. latestText
